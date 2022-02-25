@@ -1,30 +1,18 @@
-# InventoryEditor
+# DungeonCrawler
+This is a project of my first game in a Godot engine.
 
-This is a Godot Editor plugin to manage inventories and items in godot. The plugin allows you to quickly and easily manage all your inventories and items. You can also create your own inventory and items ui. Resources are assigned very easily using drag and drop. The assigned resources can be viewed in preview window, to check them. You can also test all your inventories and items in preview mode.
+	Movement - WASD/←↓↑→	
+	Toggle inv - I/Alt
+	Toggle shop - O
 
-Version: 1.4.3
- - Testet in Godot 3.3
+	Prev hotbar item - Q
+	Next hotbar item - E
+	First hotbar item - 1
+	Second hotbar item - 2
+	Third hotbar item - 3
 
-The following screenshots show the working areas of the plugin:
+	Pick-up an item - F
+	Use an item from hotbar - X
 
-### Images
-Level example
-![2D Level example](https://raw.githubusercontent.com/VP-GAMES/InventoryEditor/main/.github/images/level.png)
+	Drag & drop - left mouse button
 
-2D Level example
-![2D Level example](https://raw.githubusercontent.com/VP-GAMES/InventoryEditor/main/.github/images/level2d.png)
-
-3D Level example
-![3D Level example](https://raw.githubusercontent.com/VP-GAMES/InventoryEditor/main/.github/images/level3d.png)
-
-Items manager
-![Items manager](https://raw.githubusercontent.com/VP-GAMES/InventoryEditor/main/.github/images/items.png)
-
-Inventories preview
-![Inventories preview](https://raw.githubusercontent.com/VP-GAMES/InventoryEditor/main/.github/images/inventories.png)
-
-How to install
------------------
-
-This is a regular editor plugin. Copy the contents of addons/inventory_editor into the same folder in your project, and activate it in your project settings.
-This plugin also contain example implementation. You find it in addons/inventory_example folder.
