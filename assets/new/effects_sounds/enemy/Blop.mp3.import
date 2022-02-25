@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Blop.mp3-d11c8aedf40b85be1af51525c8343e69.mp3str"
+
+[deps]
+
+source_file="res://assets/new/effects_sounds/enemy/Blop.mp3"
+dest_files=[ "res://.import/Blop.mp3-d11c8aedf40b85be1af51525c8343e69.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

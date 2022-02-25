@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/breves_dies_hominis.ogg-60f3726cb3b2fcde3a1ec5b681dd3546.oggstr"
+
+[deps]
+
+source_file="res://assets/new/effects_sounds/player/breves_dies_hominis.ogg"
+dest_files=[ "res://.import/breves_dies_hominis.ogg-60f3726cb3b2fcde3a1ec5b681dd3546.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

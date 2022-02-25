@@ -1,0 +1,86 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://assets/new/enemies/Bat/Bat.png" type="Texture" id=1]
+[ext_resource path="res://src/Actors/Enemies/Enemy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Actors/Enemies/Enemy_04_bat/Enemy_04_bat.gd" type="Script" id=3]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 1 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 1 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 1 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 1 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ],
+"loop": true,
+"name": "run",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 5.5, 3.5 )
+
+[node name="Enemy_04_bat" groups=["enemy_bat"] instance=ExtResource( 2 )]
+script = ExtResource( 3 )
+
+[node name="Stats" parent="." index="0"]
+max_health = 20
+
+[node name="AnimatedSprite" parent="." index="2"]
+frames = SubResource( 5 )
+animation = "run"
+
+[node name="CollisionShape2D" parent="." index="3"]
+position = Vector2( -2.38419e-07, 8.9407e-08 )
+
+[node name="CollisionShape2D" parent="SoftCollision" index="0"]
+position = Vector2( 0.5, -0.5 )
+shape = SubResource( 10 )
+
+[node name="Hurtbox" parent="." index="6" groups=["enemy_bat"]]
+is_flying = true
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2( 0, -0.5 )
+
+[node name="Hitbox" parent="." index="7"]
+damage = 2
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2( 0, -0.5 )
+
+[editable path="SoftCollision"]
+[editable path="Hurtbox"]
+[editable path="Hitbox"]

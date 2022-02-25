@@ -1,0 +1,288 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://assets/font,themes/labels.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/new/background/Loading_screen_Cove.png" type="Texture" id=2]
+[ext_resource path="res://src/Screens/Start_screen.gd" type="Script" id=3]
+[ext_resource path="res://assets/font,themes/fonts/PixelRPG.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://assets/new/effects_sounds/player/start_end_music.ogg" type="AudioStream" id=5]
+[ext_resource path="res://assets/ui/backward.png" type="Texture" id=6]
+[ext_resource path="res://assets/ui/forward.png" type="Texture" id=7]
+[ext_resource path="res://assets/new/effects_sounds/player/switch1.wav" type="AudioStream" id=8]
+[ext_resource path="res://src/Screens/Settings.tscn" type="PackedScene" id=9]
+
+[sub_resource type="DynamicFont" id=5]
+size = 72
+font_data = ExtResource( 4 )
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("CenterContainer/GridContainer/Label_start:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CenterContainer/GridContainer/Label_settings:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CenterContainer/GridContainer/Label_quit:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "selected_quit"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("CenterContainer/GridContainer/Label_quit:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.894118, 0.12549, 0.12549, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Right:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 572, 397 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Right/Left:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 130, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "selected_settings"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("CenterContainer/GridContainer/Label_settings:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.894118, 0.12549, 0.12549, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Right:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 527, 356 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Right/Left:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 220, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "selected_start"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("CenterContainer/GridContainer/Label_start:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.894118, 0.12549, 0.12549, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Right:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 494, 314 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Right/Left:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 286, 0 ) ]
+}
+
+[node name="Start_screen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_scene_path = "res://src/Maps/map01.tscn"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 1.0
+margin_right = 11.0
+margin_bottom = 33.0
+texture = ExtResource( 2 )
+stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label_name" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -366.0
+margin_top = 150.0
+margin_right = 366.0
+margin_bottom = 73.0
+custom_fonts/font = SubResource( 5 )
+text = "Dungeon Crawler"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer"]
+margin_left = 511.0
+margin_top = 300.0
+margin_right = 769.0
+margin_bottom = 419.0
+
+[node name="Label_start" type="Label" parent="CenterContainer/GridContainer"]
+margin_right = 258.0
+margin_bottom = 37.0
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+custom_fonts/font = ExtResource( 1 )
+text = "START GAME"
+align = 1
+
+[node name="Label_settings" type="Label" parent="CenterContainer/GridContainer"]
+margin_top = 41.0
+margin_right = 258.0
+margin_bottom = 78.0
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+custom_fonts/font = ExtResource( 1 )
+text = "SETTINGS"
+align = 1
+
+[node name="Label_quit" type="Label" parent="CenterContainer/GridContainer"]
+margin_top = 82.0
+margin_right = 258.0
+margin_bottom = 119.0
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+custom_fonts/font = ExtResource( 1 )
+text = "QUIT"
+align = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 1 )
+anims/selected_quit = SubResource( 2 )
+anims/selected_settings = SubResource( 3 )
+anims/selected_start = SubResource( 4 )
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+autoplay = true
+bus = "Music"
+
+[node name="Label_switch" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+bus = "Sfx"
+
+[node name="Settings" parent="." instance=ExtResource( 9 )]
+visible = false
+
+[node name="Right" type="Sprite" parent="."]
+position = Vector2( 572, 397 )
+texture = ExtResource( 7 )
+
+[node name="Left" type="Sprite" parent="Right"]
+position = Vector2( 130, 0 )
+texture = ExtResource( 6 )
+
+[connection signal="gui_input" from="CenterContainer/GridContainer/Label_start" to="." method="_on_Label_start_gui_input"]
+[connection signal="gui_input" from="CenterContainer/GridContainer/Label_settings" to="." method="_on_Label_settings_gui_input"]
+[connection signal="gui_input" from="CenterContainer/GridContainer/Label_quit" to="." method="_on_Label_quit_gui_input"]
+[connection signal="settings_label_back" from="Settings" to="." method="_on_Settings_settings_label_back"]

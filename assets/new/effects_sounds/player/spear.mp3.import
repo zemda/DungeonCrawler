@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/spear.mp3-016030c712b9a365033ce8a2ffe62f3b.mp3str"
+
+[deps]
+
+source_file="res://assets/new/effects_sounds/player/spear.mp3"
+dest_files=[ "res://.import/spear.mp3-016030c712b9a365033ce8a2ffe62f3b.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

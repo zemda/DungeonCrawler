@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Allahu Akbar Sound Effect.ogg-1d1a9c1572fa0f508fdceb21725cfea4.oggstr"
+
+[deps]
+
+source_file="res://assets/new/effects_sounds/enemy/Allahu Akbar Sound Effect.ogg"
+dest_files=[ "res://.import/Allahu Akbar Sound Effect.ogg-1d1a9c1572fa0f508fdceb21725cfea4.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

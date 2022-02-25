@@ -1,0 +1,130 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://assets/new/effects_sounds/player/heal.wav" type="AudioStream" id=1]
+[ext_resource path="res://src/Actors/Player/Player.gd" type="Script" id=13]
+[ext_resource path="res://src/Actors/Player/PickUpArea.gd" type="Script" id=14]
+[ext_resource path="res://src/Actors/Hurtbox_Hitbox/Hurtbox.tscn" type="PackedScene" id=15]
+[ext_resource path="res://src/AutoLoad/PlayerStats.tscn" type="PackedScene" id=16]
+[ext_resource path="res://assets/new/lights/light2.png" type="Texture" id=17]
+[ext_resource path="res://assets/new/player/Knight_walk.png" type="Texture" id=18]
+[ext_resource path="res://assets/new/player/Knight_idle.png" type="Texture" id=19]
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 19 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 19 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 19 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 19 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 18 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 18 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 18 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 18 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
+"loop": true,
+"name": "idle2",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ],
+"loop": true,
+"name": "run2",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 5, 3.875 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 5, 7 )
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 26.0
+
+[node name="Player" type="KinematicBody2D" groups=["player"]]
+z_index = 1
+collision_mask = 8
+script = ExtResource( 13 )
+
+[node name="PlayerStats" parent="." instance=ExtResource( 16 )]
+max_health = 100
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "run2"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 0.4, 0.4 )
+limit_smoothed = true
+smoothing_enabled = true
+smoothing_speed = 8.0
+drag_margin_left = 0.1
+drag_margin_top = 0.1
+drag_margin_right = 0.1
+drag_margin_bottom = 0.1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+modulate = Color( 0, 0.298039, 1, 1 )
+position = Vector2( 0, 4 )
+shape = SubResource( 2 )
+
+[node name="player_hurtbox" parent="." groups=["player_hurtbox"] instance=ExtResource( 15 )]
+collision_mask = 193
+
+[node name="CollisionShape2D" parent="player_hurtbox" index="0" groups=["player_hurtbox"]]
+position = Vector2( 0, -1 )
+shape = SubResource( 3 )
+
+[node name="AttackCooldown" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+
+[node name="BulletSpawner" type="Position2D" parent="."]
+position = Vector2( 5, -5 )
+
+[node name="PickUpArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 32768
+script = ExtResource( 14 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickUpArea"]
+shape = SubResource( 4 )
+
+[node name="Light2D" type="Light2D" parent="."]
+texture = ExtResource( 17 )
+texture_scale = 0.4
+color = Color( 0.878431, 0.454902, 0.454902, 1 )
+shadow_enabled = true
+
+[node name="Audio_heal" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 1 )
+max_distance = 300.0
+bus = "Sfx"
+
+[connection signal="area_entered" from="PickUpArea" to="PickUpArea" method="_on_PickUpArea_area_entered"]
+[connection signal="area_exited" from="PickUpArea" to="PickUpArea" method="_on_PickUpArea_area_exited"]
+
+[editable path="player_hurtbox"]

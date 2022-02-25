@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Arrow+Swoosh+1.wav-aaa447e32f1fc855505d7daad3d9b0a4.sample"
+
+[deps]
+
+source_file="res://assets/new/effects_sounds/player/Arrow+Swoosh+1.wav"
+dest_files=[ "res://.import/Arrow+Swoosh+1.wav-aaa447e32f1fc855505d7daad3d9b0a4.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,123 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://assets/new/objects/Red potion.png" type="Texture" id=1]
+[ext_resource path="res://src/Objects/Pickable_items/pickup_item_area.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Objects/Pickable_items/Item_HealthPotion.gd" type="Script" id=3]
+[ext_resource path="res://assets/font,themes/fonts/m3x6.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://assets/new/effects_sounds/player/heal.wav" type="AudioStream" id=5]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 1 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="DynamicFont" id=8]
+extra_spacing_space = -3
+font_data = ExtResource( 4 )
+
+[sub_resource type="Animation" id=9]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -17, -14 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "up_down"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -17, -14 ), Vector2( -17, -15 ), Vector2( -17, -16 ), Vector2( -17, -15 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 6, 7.5 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 6, 7.5 )
+
+[node name="Item_HealthPotion" type="KinematicBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource( 3 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 8, 9 )
+frames = SubResource( 5 )
+playing = true
+
+[node name="Label" type="Label" parent="AnimatedSprite"]
+margin_left = -17.0
+margin_top = -14.0
+margin_right = 31.0
+margin_bottom = -0.999999
+rect_scale = Vector2( 0.7, 0.7 )
+custom_fonts/font = SubResource( 8 )
+text = "Pick me up [F]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite/Label"]
+anims/RESET = SubResource( 9 )
+anims/up_down = SubResource( 10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 8, 9 )
+shape = SubResource( 6 )
+
+[node name="pickup_item_area" parent="." instance=ExtResource( 2 )]
+position = Vector2( 8, 9 )
+
+[node name="InstantUseArea" type="Area2D" parent="."]
+position = Vector2( 8, 9 )
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InstantUseArea"]
+position = Vector2( 0, -0.5 )
+shape = SubResource( 7 )
+
+[node name="Audio_heal" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+max_distance = 300.0
+bus = "Sfx"
+
+[connection signal="area_entered" from="InstantUseArea" to="." method="_on_InstantUseArea_area_entered"]
+
+[editable path="pickup_item_area"]
