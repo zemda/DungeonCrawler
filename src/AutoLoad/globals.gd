@@ -3,8 +3,11 @@ extends Node
 signal retry
 
 signal start_game #kvůli hotbaru v PlayerStats, ať to načtu jakmile startnu hru ze start screenu
+
 var player_node: KinematicBody2D
 
+var can_jump = false #aby hráč mohl při boss fightu "skákat"
+var is_in_opened = false
 
 var kills = 0
 var golds = 0

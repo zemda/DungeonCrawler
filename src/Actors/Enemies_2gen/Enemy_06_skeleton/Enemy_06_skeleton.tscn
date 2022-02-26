@@ -59,7 +59,19 @@ max_health = 15
 [node name="AnimatedSprite" parent="." index="2"]
 frames = SubResource( 9 )
 animation = "run"
-frame = 2
+frame = 3
+
+[node name="CollisionShape2D" parent="." index="3"]
+position = Vector2( 0.25, 5.75 )
+
+[node name="CollisionShape2D" parent="SoftCollision" index="0"]
+position = Vector2( 0, 2 )
+
+[node name="Hurtbox" parent="." index="5"]
+visible = true
+
+[node name="Hitbox" parent="." index="6"]
+visible = true
 
 [node name="RayCast_can_see_player" parent="." index="8"]
 visible = true
@@ -69,5 +81,6 @@ collision_mask = 8
 [node name="BulletSpawner" type="Position2D" parent="." index="14"]
 position = Vector2( 6, 1 )
 
+[editable path="SoftCollision"]
 [editable path="Hurtbox"]
 [editable path="Hitbox"]

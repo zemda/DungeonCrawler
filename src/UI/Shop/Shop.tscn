@@ -106,7 +106,7 @@ wait_time = 4.0
 one_shot = true
 
 [node name="Desc_visibility" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 2.0
 one_shot = true
 
 [connection signal="timeout" from="Info_visibility" to="." method="_on_Info_visibility_timeout"]

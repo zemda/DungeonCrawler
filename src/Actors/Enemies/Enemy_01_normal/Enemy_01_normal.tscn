@@ -40,7 +40,7 @@ frames = SubResource( 1 )
 animation = "idle"
 
 [node name="CollisionShape2D" parent="." index="3"]
-position = Vector2( 1, 6.5 )
+position = Vector2( 1.5, 6.25 )
 
 [node name="CollisionShape2D" parent="SoftCollision" index="0"]
 position = Vector2( 1.5, 2.5 )

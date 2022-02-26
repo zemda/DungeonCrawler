@@ -38,11 +38,14 @@ radius = 17.0
 [node name="Enemy_07_sword" groups=["enemy_07_sword"] instance=ExtResource( 1 )]
 script = ExtResource( 10 )
 
+[node name="Stats" parent="." index="0"]
+max_health = 15
+
 [node name="AnimatedSprite" parent="." index="2"]
 modulate = Color( 1, 0.254902, 0.254902, 1 )
 frames = SubResource( 1 )
 animation = "run"
-frame = 1
+frame = 2
 
 [node name="CollisionShape2D" parent="." index="3"]
 position = Vector2( 0.5, 5.5 )
@@ -51,14 +54,11 @@ position = Vector2( 0.5, 5.5 )
 position = Vector2( 0.5, 1.5 )
 shape = SubResource( 2 )
 
-[node name="Hurtbox" parent="." index="5"]
-visible = false
-
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2( 1, 0.75 )
 
 [node name="Hitbox" parent="." index="6"]
-visible = false
+damage = 4
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 position = Vector2( 1, 0.5 )

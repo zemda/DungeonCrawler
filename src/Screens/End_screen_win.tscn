@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/font,themes/labels.tres" type="DynamicFont" id=1]
 [ext_resource path="res://assets/new/background/thumb-1920-611159.jpg" type="Texture" id=2]
-[ext_resource path="res://assets/new/effects_sounds/player/breves_dies_hominis.ogg" type="AudioStream" id=3]
+[ext_resource path="res://assets/new/effects_sounds/win_.mp3" type="AudioStream" id=3]
 [ext_resource path="res://assets/ui/backward.png" type="Texture" id=4]
 [ext_resource path="res://assets/new/effects_sounds/player/switch1.wav" type="AudioStream" id=5]
 [ext_resource path="res://assets/ui/forward.png" type="Texture" id=6]

@@ -77,7 +77,6 @@ func _physics_process(delta: float) -> void:
 			var direction = Vector2.ZERO
 			if player:
 				if not self.is_in_group("enemy_06_skeleton") and not self.is_in_group("enemy_07_sword"): #u těch je jiný match
-					print("wut")
 					generate_path()
 					navigate()
 			

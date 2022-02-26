@@ -38,7 +38,7 @@ func _ready() -> void: #TOHLE NĚJAK ASI UPRAVIT, ABY TO BYLO LEPŠÍ, není to 
 	$Player/player_hurtbox/CollisionShape2D.disabled = true
 	
 	set_players_pos()
-	spawn_enemies(0)
+	spawn_enemies(25)
 	spawn_items_and_objects()
 	
 #	$Before_start_emit_timer.start()
@@ -124,8 +124,21 @@ func on_enemy_died() -> void:
 	enemies_alive -= 1
 	enemies_alive = clamp(enemies_alive, 0, 1000)
 	if enemies_alive == 0:
+		Globals.can_jump = true
+		var label = preload("res://src/UI/Label.tscn")
+		var lab = label.instance()
+		lab.text = "The door has been opened."
+		$UI/Player_UI.add_child(lab)
+		
 		$Doors_side_left.open_doors()
 		var room = ROOMS[0].instance()
 		$Navigation2D.add_child(room)
 		Stats.disconnect("enemy_died", self, "on_enemy_died")
+		
+		var tim = Timer.new() #aby se label smazal
+		add_child(tim)
+		tim.start(3)
+		yield(tim, "timeout")
+		tim.queue_free()
+		lab.queue_free()
 		

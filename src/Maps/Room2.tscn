@@ -37,16 +37,16 @@ __meta__ = {
 }
 
 [node name="Spawn0" type="Position2D" parent="Positions"]
-position = Vector2( 1114, -707 )
+position = Vector2( 1105, -719 )
 
 [node name="Spawn1" type="Position2D" parent="Positions"]
-position = Vector2( 1240, -825 )
+position = Vector2( 1233, -831 )
 
 [node name="Spawn2" type="Position2D" parent="Positions"]
-position = Vector2( 1543, -825 )
+position = Vector2( 1538, -831 )
 
 [node name="Spawn3" type="Position2D" parent="Positions"]
-position = Vector2( 1722, -707 )
+position = Vector2( 1697, -719 )
 
 [node name="Doors" type="Container" parent="."]
 margin_right = 40.0
@@ -60,5 +60,43 @@ position = Vector2( 1335, -520 )
 
 [node name="Doors_front2" parent="Doors" instance=ExtResource( 3 )]
 position = Vector2( 1352, -520 )
+
+[node name="Enemy_pos" type="Container" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Spawn_E1" type="Position2D" parent="Enemy_pos"]
+position = Vector2( 1137, -783 )
+
+[node name="Spawn_E2" type="Position2D" parent="Enemy_pos"]
+position = Vector2( 1282, -783 )
+
+[node name="Spawn_E3" type="Position2D" parent="Enemy_pos"]
+position = Vector2( 1538, -783 )
+
+[node name="Spawn_E4" type="Position2D" parent="Enemy_pos"]
+position = Vector2( 1650, -783 )
+
+[node name="Spawn_E5" type="Position2D" parent="Enemy_pos"]
+position = Vector2( 1361, -863 )
+
+[node name="Spawn_E6" type="Position2D" parent="Enemy_pos"]
+position = Vector2( 1425, -863 )
+
+[node name="Enemy_pos2" type="Container" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Spawn_E6" type="Position2D" parent="Enemy_pos2"]
+position = Vector2( 1169, -815 )
+
+[node name="Spawn_E7" type="Position2D" parent="Enemy_pos2"]
+position = Vector2( 1617, -815 )
 
 [editable path="Player_detector"]

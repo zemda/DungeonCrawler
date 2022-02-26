@@ -158,6 +158,7 @@ func toggleShop_(value) -> void:
 	toggleInventory(value)
 	if value == false:
 		on_closed_inv_return_holding_item()
+	Globals.is_in_opened = value
 #------------- SETTERY -------------#
 
 
@@ -174,6 +175,7 @@ func _on_PlayerStats_player_max_health_updated(max_health) -> void:
 #------------- HP BAR -------------#
 
 func gold_updated():
+	Globals.golds = clamp(Globals.golds, 0, 99999)
 	$Gold_label.text = "Golds: %s" % Globals.golds
 
 func on_closed_inv_return_holding_item():

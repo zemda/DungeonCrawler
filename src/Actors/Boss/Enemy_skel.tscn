@@ -1,0 +1,431 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://assets/new/effects_sounds/enemy/Blop.mp3" type="AudioStream" id=1]
+[ext_resource path="res://src/Actors/Boss/Enemy_skel.gd" type="Script" id=2]
+[ext_resource path="res://assets/new/enemies/Skeleton2/run/Skeleton_run.png" type="Texture" id=3]
+[ext_resource path="res://assets/new/enemies/Skeleton2/idle/Skeleton_idle.png" type="Texture" id=4]
+[ext_resource path="res://assets/new/effects_sounds/enemy/enemy_afterdead_explosion_anim_spritesheet.png" type="Texture" id=5]
+[ext_resource path="res://src/Actors/Hurtbox_Hitbox/SoftCollision.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/Actors/Hurtbox_Hitbox/Hitbox.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/UI/HealthBar/HealthBar.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/Actors/Hurtbox_Hitbox/Hurtbox.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/AutoLoad/Stats.tscn" type="PackedScene" id=10]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 4 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 4 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 4 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 3 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 3 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 3 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
+"loop": true,
+"name": "run",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=16]
+extents = Vector2( 3.89768, 1.28476 )
+
+[sub_resource type="RectangleShape2D" id=19]
+extents = Vector2( 6, 8 )
+
+[sub_resource type="RectangleShape2D" id=17]
+extents = Vector2( 5, 6.75 )
+
+[sub_resource type="RectangleShape2D" id=18]
+extents = Vector2( 5, 7.5 )
+
+[sub_resource type="Animation" id=14]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Dead_anim:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Dead_anim:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Audio_dead_sfx:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("AnimatedSprite:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Hurtbox:monitoring")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Hurtbox:monitorable")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Hitbox:monitoring")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Hitbox:monitorable")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("SoftCollision:monitoring")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("SoftCollision:monitorable")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "dead"
+length = 0.45
+tracks/0/type = "value"
+tracks/0/path = NodePath("Dead_anim:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Dead_anim:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Audio_dead_sfx:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("AnimatedSprite:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Hurtbox:monitoring")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Hurtbox:monitorable")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Hitbox:monitoring")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Hitbox:monitorable")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("SoftCollision:monitoring")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("SoftCollision:monitorable")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[node name="Enemy_skel" type="KinematicBody2D" groups=["enemy", "enemy_06_skeleton", "enemy_2gen"]]
+z_index = 1
+collision_layer = 2
+collision_mask = 8
+script = ExtResource( 2 )
+
+[node name="Stats" parent="." instance=ExtResource( 10 )]
+max_health = 15
+
+[node name="HealthBar" parent="." instance=ExtResource( 8 )]
+margin_left = -6.0
+margin_top = -10.0
+margin_right = -6.0
+margin_bottom = -10.0
+rect_scale = Vector2( 0.2, 0.2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 9 )
+animation = "run"
+frame = 1
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+modulate = Color( 0.2, 0.372549, 0.819608, 1 )
+position = Vector2( 5.96046e-08, 5 )
+scale = Vector2( 0.89797, 1.16753 )
+shape = SubResource( 16 )
+
+[node name="SoftCollision" parent="." instance=ExtResource( 6 )]
+
+[node name="CollisionShape2D" parent="SoftCollision" index="0"]
+position = Vector2( 0, 1 )
+shape = SubResource( 19 )
+
+[node name="Hurtbox" parent="." groups=["enemy_hurtbox"] instance=ExtResource( 9 )]
+collision_layer = 256
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+modulate = Color( 0.317647, 0.247059, 0.509804, 0.745098 )
+position = Vector2( 0, 0.5 )
+shape = SubResource( 17 )
+
+[node name="Hitbox" parent="." groups=["enemy_hitbox"] instance=ExtResource( 7 )]
+collision_layer = 128
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+modulate = Color( 0.941176, 0.905882, 0.0352941, 0.560784 )
+position = Vector2( 0, 1 )
+shape = SubResource( 18 )
+
+[node name="AttackCooldown" type="Timer" parent="."]
+wait_time = 0.8
+one_shot = true
+
+[node name="AttackCooldown2" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="softCollTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 14 )
+anims/dead = SubResource( 15 )
+
+[node name="BulletSpawner" type="Position2D" parent="."]
+position = Vector2( 6, 1 )
+
+[node name="Dead_anim" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 5 )
+hframes = 4
+
+[node name="Audio_dead_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 1 )
+max_distance = 300.0
+bus = "Sfx"
+
+[node name="RayCast_can_see_player" type="RayCast2D" parent="."]
+visible = false
+cast_to = Vector2( 50, 0 )
+collision_mask = 9
+
+[connection signal="health_updated" from="Stats" to="HealthBar" method="_on_Stats_health_updated"]
+[connection signal="max_health_updated" from="Stats" to="HealthBar" method="_on_Stats_max_health_updated"]
+
+[editable path="SoftCollision"]
+[editable path="Hurtbox"]
+[editable path="Hitbox"]

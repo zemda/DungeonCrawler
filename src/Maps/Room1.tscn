@@ -44,6 +44,25 @@ position = Vector2( 1478, -379 )
 [node name="Spawn3" type="Position2D" parent="Positions"]
 position = Vector2( 1563, -457 )
 
+[node name="Enemy_pos" type="Container" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Spawn_E1" type="Position2D" parent="Enemy_pos"]
+position = Vector2( 1089, -447 )
+
+[node name="Spawn_E2" type="Position2D" parent="Enemy_pos"]
+position = Vector2( 1250, -447 )
+
+[node name="Spawn_E3" type="Position2D" parent="Enemy_pos"]
+position = Vector2( 1505, -447 )
+
+[node name="Spawn_E4" type="Position2D" parent="Enemy_pos"]
+position = Vector2( 1617, -447 )
+
 [node name="First" type="Container" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0

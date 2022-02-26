@@ -20,8 +20,6 @@ var motion: = Vector2.ZERO
 var _last_dir: = Vector2(1.0, 0.0)
 var _attack_dir: = Vector2(1.0, 0.0)
 
-
-
 func _ready() -> void:
 	Globals.player_node = self
 
@@ -102,6 +100,9 @@ func _input(event: InputEvent) -> void:
 			if is_item_picked:
 				$PickUpArea.items_in_range.erase(pickup_item) #smazat z items_in_range dictionary, POKUD JEJ VEZMU
 			#Nejbližší item se vezme
+	if Input.is_action_just_pressed("jump"):
+		if Globals.can_jump:
+			jump()
 
 
 func _melee_attack(): #Sword attack
@@ -197,3 +198,13 @@ func shooting_direction(): #Shooting direction
 func onGotHitKnockback(knockback_direction) -> void:
 	knockback = knockback_direction * 75
 
+func jump():
+	max_speed = 300
+	motion = motion * 8
+	modulate.a = 0.5
+	var tim = Timer.new()
+	add_child(tim)
+	tim.start(0.3)
+	yield(tim, "timeout")
+	max_speed = 150
+	modulate.a = 1
